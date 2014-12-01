@@ -16,5 +16,13 @@
 -type attachment() :: {ne_binary(), ne_binary(), binary()}.
 -type attachments() :: [attachment(),...] | [].
 
+-define(MACRO_VALUE(Key, Label, Name, Description)
+        ,{Key
+          ,wh_json:from_list([{<<"i18n_label">>, Label}
+                              ,{<<"friendly_name">>, Name}
+                              ,{<<"description">>, Description}
+                             ])
+         }).
+
 -define(TELETYPE_HRL, 'true').
 -endif.
